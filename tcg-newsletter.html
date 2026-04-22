@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Udodi David">
+    <meta name="description" content="Weekly raw copywriting & storytelling tips straight to your inbox" />
+    <meta property="og:image" content="https://i.ibb.co/MYVwxW0/20260422-152623.jpg
+" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+  <title>The Copy Grind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/typeface-minecraft@1.0.0/index.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00FF6A;
+      --black: #1C1C1C;
+      --white: #FFFFFF;
+      --grey:  #888888;
+      --glow:  0 0 18px rgba(0, 255, 106, 0.35);
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--black);
+      font-family: 'Instrument Sans', sans-serif;
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .grid-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 70% 60% at 50% 50%,
+        transparent 0%,
+        rgba(28,28,28,0.55) 55%,
+        rgba(28,28,28,0.92) 80%,
+        #1C1C1C 100%
+      );
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 80px;
+    }
+
+    .logo-wrap {
+      margin-bottom: 48px;
+      animation: fadeUp 0.7s ease both;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+
+    .logo-wrap img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+
+    .eyebrow {
+      font-family: 'Minecraft', monospace;
+      font-size: 10px;
+      color: var(--green);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--green);
+      opacity: 0.6;
+    }
+
+    .headline {
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      text-align: center;
+      max-width: 680px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s 0.18s ease both;
+    }
+
+    .headline em {
+      font-family: "Instrument Serif", serif; 
+      font-size: "48px";
+      color: var(--green);
+    }
+
+    .subheadline {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 400;
+      color: var(--grey);
+      text-align: center;
+      max-width: 500px;
+      line-height: 1.65;
+      margin-bottom: 44px;
+      animation: fadeUp 0.7s 0.26s ease both;
+    }
+
+    .iframe-card {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0, 255, 106, 0.18);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,255,106,0.06);
+      animation: fadeUp 0.7s 0.34s ease both;
+      position: relative;
+    }
+
+    .iframe-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--green);
+      box-shadow: var(--glow);
+      z-index: 2;
+    }
+
+    .iframe-card iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      min-height: 180px;
+    }
+
+    .unsub {
+      margin-top: 16px;
+      font-weight: 300;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.06em;
+      animation: fadeUp 0.7s 0.42s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .corner {
+      position: fixed;
+      width: 22px;
+      height: 22px;
+      border-color: rgba(0,255,106,0.25);
+      border-style: solid;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .corner.tl { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
+    .corner.tr { top: 20px; right: 20px; border-width: 1px 1px 0 0; }
+    .corner.bl { bottom: 20px; left: 20px; border-width: 0 0 1px 1px; }
+    .corner.br { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
+
+    .footer-tag {
+      position: fixed;
+      bottom: 16px;
+      right: 24px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 7px;
+      color: rgba(0,255,106,0.2);
+      letter-spacing: 0.1em;
+      z-index: 2;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg">
+    <div class="grid-lines"></div>
+    <div class="grid-vignette"></div>
+  </div>
+
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="page">
+
+    <div class="logo-wrap">
+      <img src="https://i.ibb.co/MYVwxW0/20260422-152623.jpghttps://i.ibb.co/MYVwxW0/20260422-152623.jpg" alt="The Copy Grind" />
+    </div>
+
+    <p class="eyebrow">Newsletter</p>
+
+    <h1 class="headline">
+      For the copywriter obsessed with <em><u>the craft</u></em>
+    </h1>
+
+    <p class="subheadline">
+      Weekly raw copywriting, and storytelling tips straight to your inbox.
+    </p>
+
+    <div class="iframe-card">
+      <iframe src="https://subscribe-forms.beehiiv.com/3df9f12d-06ca-4923-918d-683bcbd1f6f8" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 492px; height: 276px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+    </div>
+
+    <p class="unsub">Unsubscribe anytime</p>
+
+  </div>
+
+  <div class="footer-tag">TCG © 2025</div>
+
+</body>
+</html>
