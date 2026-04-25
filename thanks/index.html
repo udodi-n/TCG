@@ -7,8 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/typeface-minecraft@1.0.0/index.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">  <style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -16,14 +17,14 @@
       --black: #1C1C1C;
       --white: #FFFFFF;
       --grey:  #888888;
-      --glow:  0 0 18px rgba(0, 255, 106, 0.35);
+      --glow:  0 0 18px rgba(73, 73, 73, 0.35);
     }
 
     html, body {
       min-height: 100%;
-      background: var(--black);
+      background: var(--white);
       font-family: 'Instrument Sans', sans-serif;
-      color: var(--white);
+      color: var(--black);
       overflow-x: hidden;
     }
 
@@ -38,8 +39,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+        linear-gradient(rgba(28,28,28,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28,28,28,0.07) 1px, transparent 1px);
       background-size: 48px 48px;
     }
 
@@ -49,9 +50,9 @@
       background: radial-gradient(
         ellipse 70% 60% at 50% 50%,
         transparent 0%,
-        rgba(28,28,28,0.55) 55%,
-        rgba(28,28,28,0.92) 80%,
-        #1C1C1C 100%
+        rgba(255,255,255,0.55) 55%,
+        rgba(255,255,255,0.92) 80%,
+        #FFFFFF 100%
       );
     }
 
@@ -59,7 +60,7 @@
       position: fixed;
       width: 22px;
       height: 22px;
-      border-color: rgba(0,255,106,0.25);
+      border-color: rgba(0,255,106,0.35);
       border-style: solid;
       z-index: 2;
       pointer-events: none;
@@ -69,7 +70,6 @@
     .corner.bl { bottom: 20px; left: 20px;  border-width: 0 0 1px 1px; }
     .corner.br { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
 
-    /* ─── PAGE ────────────────────────────────────────── */
     .page {
       position: relative;
       z-index: 1;
@@ -85,7 +85,7 @@
     .check-wrap {
       width: 64px;
       height: 64px;
-      border: 2px solid var(--green);
+      border: 2px solid var(--black); 
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -101,14 +101,14 @@
       position: absolute;
       inset: -8px;
       border-radius: 50%;
-      border: 1px solid rgba(0,255,106,0.15);
+      border: 1px solid #1c1c1c;
       animation: pulse 2.4s ease-in-out infinite;
     }
 
     .check-wrap svg {
       width: 28px;
       height: 28px;
-      stroke: var(--green);
+      stroke: var(--black);
       stroke-width: 2.5;
       fill: none;
       stroke-linecap: round;
@@ -121,7 +121,7 @@
     .eyebrow {
       font-family: 'Minecraft';
       font-size: 9px;
-      color: var(--green);
+      color: var(--black);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 20px;
@@ -135,31 +135,30 @@
       display: block;
       width: 28px;
       height: 1px;
-      background: var(--green);
+      background: var(--bla);
       opacity: 0.5;
     }
 
-    /* ─── HEADLINE ────────────────────────────────────── */
     .headline {
       font-size: clamp(2.2rem, 6vw, 3.8rem);
       font-weight: 900;
-      font-family: Instrument Sans;
+      font-family: 'Instrument Sans', sans-serif;
       letter-spacing: -0.03em;
       line-height: 1.08;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 18px;
       animation: fadeUp 0.6s 0.28s ease both;
     }
 
     .headline span {
-      color: var(--green);
+      color: var(--black);
     }
 
     .subtext {
       font-size: 1rem;
       font-weight: 400;
       color: var(--grey);
-      font-family: 'Instrument Sans', serif;
+      font-family: 'Instrument Sans', sans-serif;
       max-width: 420px;
       line-height: 1.65;
       margin-bottom: 48px;
@@ -169,7 +168,7 @@
     .divider {
       width: 48px;
       height: 2px;
-      background: var(--green);
+      background: var(--black);
       margin: 0 auto 48px;
       opacity: 0.5;
       animation: fadeUp 0.6s 0.4s ease both;
@@ -178,8 +177,8 @@
     .discord-card {
       width: 100%;
       max-width: 420px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(0,255,106,0.18);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,255,106,0.25);
       border-top: 2px solid var(--green);
       border-radius: 6px;
       padding: 28px 32px;
@@ -193,14 +192,14 @@
     .discord-label {
       font-family: 'Minecraft', monospace;
       font-size: 8px;
-      color: var(--green);
+      color: var(--black);
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .discord-text {
       font-size: 0.9rem;
-      color: var(--grey);
+      color: var(--black);
       line-height: 1.6;
       text-align: center;
     }
@@ -240,7 +239,7 @@
       right: 24px;
       font-family: 'Minecraft', monospace;
       font-size: 7px;
-      color: rgba(0,255,106,0.2);
+      color: rgba(0,255,106,0.3);
       letter-spacing: 0.1em;
       z-index: 2;
       pointer-events: none;
@@ -290,12 +289,11 @@
 
     <h1 class="headline">Thanks for<br/><span>subscribing!</span></h1>
     <p class="subtext">
-      Keep an eye on your inbox. 
+      Keep an eye on your inbox.
     </p>
 
     <div class="divider"></div>
 
-    <!-- Discord CTA -->
     <div class="discord-card">
       <p class="discord-label">Community</p>
       <p class="discord-text">
@@ -311,17 +309,18 @@
 
   </div>
 
-<div style="margin-right: 50px;" class="footer-tag">TCG © 2025</div>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-<script>
-  window.addEventListener('load', () => {
-    confetti({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.6 },
-      colors: ['#00FF6A', '#ffffff', '#1c1c1c']
+  <div style="margin-right: 50px;" class="footer-tag">TCG © 2025</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#00FF6A', '#1c1c1c', '#888888']
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>

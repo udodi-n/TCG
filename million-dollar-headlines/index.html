@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Million Dollar Headlines — Free Swipe File</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --tcg-green: #00FF6A;
+    --tcg-black: #1c1c1c;
+    --tcg-white: #ffffff;
+    --tcg-grey: #888888;
+}
+
+html, body {
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: var(--tcg-white);
+    color: var(--tcg-black);
+    font-family: 'Instrument Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+    linear-gradient(rgba(28,28,28,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28,28,28,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.radial-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 30%, var(--tcg-white) 75%);
+}
+
+.page {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 640px;
+    padding: 60px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 24px;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.phone-wrap {
+    width: 100vw;
+    max-width: 900px;
+    margin-bottom: 40px;
+}
+
+.phone-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.headline {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: clamp(32px, 7.5vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    color: var(--tcg-black);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.headline .serif-word {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 900;
+    color: var(--tcg-green);
+    background: #1c1c1c;
+    padding: 0 12px;
+    font-size: 40px;
+}
+
+.headline strong {
+    padding: 12px 0;
+}
+
+.subheadline {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--tcg-black);
+    max-width: 460px;
+    margin-bottom: 40px;
+}
+
+.form-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iframe-outer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.beehiiv-embed {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 320px;
+    display: block;
+}
+
+.privacy {
+    margin-top: 16px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    color: var(--tcg-grey);
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .page { padding: 48px 16px 40px; }
+    .phone-wrap { width: 70vh; }
+    .iframe-outer { width: 100%; }
+    .beehiiv-embed { min-width: 0; width: 100% !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="radial-overlay"></div>
+
+<div class="page">
+
+<p class="eyebrow">Free Download</p>
+
+<div class="phone-wrap">
+    <img src="https://i.ibb.co/wZQBMf9N/mdh-phone2.png" alt="Million Dollar Headlines Swipe File">
+</div>
+
+<h1 class="headline">New swipe file reveals the secrets to writing <strong><span class="serif-word">ATTENTION-GRABBING</span></strong> headlines</h1>
+
+<p class="subheadline">Sign up to get your free headline swipe file and start hooking more readers than ever before.</p>
+
+<div class="form-wrap">
+    <div class="iframe-outer">
+    <iframe
+        src="https://subscribe-forms.beehiiv.com/e74d1a18-754c-4de2-8648-c3fbe0552366"
+        class="beehiiv-embed"
+        data-test-id="beehiiv-embed"
+        frameborder="0"
+        scrolling="no"
+        style="width: 100%; max-width: 100%; height: 321px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: none;">
+    </iframe>
+    </div>
+    <p class="privacy">Feel free to unsubscribe anytime.</p>
+</div>
+
+</div>
+
+</body>
+</html>
