@@ -3,248 +3,494 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Udodi David">
-  <meta name="description" content="Weekly raw copywriting & storytelling tips straight to your inbox" />
-  <meta property="og:image" content="https://i.ibb.co/MYVwxW0/20260422-152623.jpg" />
-  <meta property="og:url" content="https://yourwebsite.com" />
-  <meta name="twitter:card" content="summary_large_image" />
   <title>The Copy Grind</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/typeface-minecraft@1.0.0/index.min.css" rel="stylesheet">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="icon" href="/images/icon.ico" type="image/x-icon">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/typeface-minecraft@1.0.0/index.min.css" rel="stylesheet">
 
+  <style>
     :root {
-      --green: #00FF6A;
-      --black: #1C1C1C;
-      --white: #FFFFFF;
-      --grey:  #888888;
-      --glow:  0 0 18px rgba(0, 255, 106, 0.35);
+      --tcg-green: #00FF6A;
+      --tcg-black: #1C1C1C;
+      --tcg-white: #FFFFFF;
+      --tcg-grey: #888888;
+      --font-main: 'Instrument Sans', sans-serif;
+      --font-minecraft: 'minecraft', monospace;
+      --font-libre: 'Libre Baskerville', serif;
     }
 
-    html, body {
-      min-height: 100%;
-      background: var(--white);
-      font-family: 'Instrument Sans', sans-serif;
-      color: var(--black);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--tcg-white);
+      color: var(--tcg-black);
       overflow-x: hidden;
     }
 
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
     }
 
-    .grid-lines {
+    nav .logo img {
+      height: 96px;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      font-family: var(--font-main);
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tcg-black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav ul li a:hover { color: #555; }
+
+    nav ul li.cta a {
+      background: var(--tcg-black);
+      color: var(--tcg-white);
+      padding: 10px 22px;
+      font-size: 20px;
+    }
+
+    nav ul li.cta a:hover { background: #333; color: var(--tcg-white); }
+
+    .hero-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: var(--tcg-white);
+    }
+
+    .hero-wrapper::before {
+      content: '';
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(28,28,28,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(28,28,28,0.07) 1px, transparent 1px);
-      background-size: 48px 48px;
+        linear-gradient(rgba(0,0,0,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .grid-vignette {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        ellipse 70% 60% at 50% 50%,
-        transparent 0%,
-        rgba(255,255,255,0.55) 55%,
-        rgba(255,255,255,0.92) 80%,
-        #FFFFFF 100%
-      );
-    }
-
-    .page {
+    .hero {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: var(--font-minecraft);
+      font-weight: 700;
+      font-size: 5rem;
+      line-height: 1.3;
+      color: var(--tcg-black);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .hero .subhead {
+      font-family: var(--font-main);
+      font-size: 2rem;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .iframe-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .iframe-wrap iframe {
+      max-width: 100%;
+    }
+
+    section {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-gif {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 2px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .created-by {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .created-by a {
+      color: blue;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .testimonial {
+      font-family: var(--font-libre);
+      font-weight: 500;
+      font-size: 2rem;
+      color: black;
+      line-height: 1.65;
+      margin: 0 auto 10px;
+      max-width: 560px;
+    }
+
+    .testimonial-attr {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--tcg-grey);
+      letter-spacing: 0.05em;
+      text-transform: capitalize;
+      margin-top: 14px;
+    }
+
+    .testimonial-attr strong {
+      font-family: var(--font-main);
+      color: black;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .divider-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+    }
+
+    hr.section-divider {
+      width: 60%;
+      border: none;
+      border-top: 1.5px solid rgba(0,0,0,0.15);
+    }
+
+    .benefits-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 60px 24px 80px;
-    }
-
-    .logo-wrap {
-      margin-bottom: 48px;
-      animation: fadeUp 0.7s ease both;
-      overflow: hidden;
-      border-radius: 10px;
-      border: 2px solid var(--black);
-    }
-
-    .logo-wrap img {
-      height: 72px;
-      width: auto;
-      display: block;
-    }
-
-    .eyebrow {
-      font-family: 'Minecraft', monospace;
-      font-size: 10px;
-      color: var(--black);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-
-    .eyebrow::before,
-    .eyebrow::after {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--green);
-      opacity: 0.6;
-    }
-
-    .headline {
-      font-size: clamp(2rem, 5.5vw, 3.6rem);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: var(--black);
-      text-align: center;
+      padding: 80px 24px;
       max-width: 680px;
-      margin-bottom: 20px;
-      animation: fadeUp 0.7s 0.18s ease both;
-    }
-
-    .headline em {
-      font-family: "Instrument Serif", serif;
-      color: var(--green);
-      background: var(--black); 
-      padding: 0 12px;
-    }
-
-    .subheadline {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      font-weight: 400;
-      color: var(--black);
+      margin: 0 auto;
       text-align: center;
-      max-width: 500px;
-      line-height: 1.65;
-      margin-bottom: 44px;
-      animation: fadeUp 0.7s 0.26s ease both;
     }
 
-    .iframe-card {
+    .benefits-section h2 {
+      font-family: var(--font-minecraft);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--tcg-black);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .benefits-section .weekly-copy {
+      font-size: clamp(14px, 1.8vw, 16px);
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .benefits-section .weekly-copy span {
+      font-style: italic;
+    }
+
+    .also-get {
+      font-size: 15px;
+      font-weight: 600;
+      
+      width: fit-content;
+      padding: 6px 14px;
+      margin-bottom: 48px;
+      letter-spacing: 0.02em;
+    }
+
+    .bonus-row {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
       width: 100%;
-      max-width: 520px;
-      background: rgba(0,0,0,0.03);
-      border: 1px solid rgba(0, 255, 106, 0.3);
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 0 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,255,106,0.1);
-      animation: fadeUp 0.7s 0.34s ease both;
-      position: relative;
+      margin-bottom: 64px;
     }
 
-    .iframe-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--green);
-      box-shadow: var(--glow);
-      z-index: 2;
+    .bonus-block {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .iframe-card iframe {
+    .bonus-block img.bonus-gif {
+      width: 40%;
+      border-radius: 2px;
       display: block;
+      margin: 0 auto 12px;
+    }
+
+    .bonus-block img.bonus-img {
       width: 100%;
-      border: none;
-      min-height: 180px;
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 2px;
     }
 
-    .unsub {
-      margin-top: 16px;
-      font-weight: 300;
-      font-size: 0.72rem;
-      color: #1c1c1c; 
-      letter-spacing: 0.06em;
-      animation: fadeUp 0.7s 0.42s ease both;
+    .bonus-block p {
+      font-size: 1rem;
+      color: black;
+      line-height: 1.7;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (max-width: 600px) {
+      .bonus-row {
+        flex-direction: column;
+      }
     }
 
-    .corner {
-      position: fixed;
-      width: 22px;
-      height: 22px;
-      border-color: rgba(0,255,106,0.35);
-      border-style: solid;
-      z-index: 2;
-      pointer-events: none;
+    footer {
+      padding: 60px 24px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.08);
     }
-    .corner.tl { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
-    .corner.tr { top: 20px; right: 20px; border-width: 1px 1px 0 0; }
-    .corner.bl { bottom: 20px; left: 20px; border-width: 0 0 1px 1px; }
-    .corner.br { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
 
-    .footer-tag {
-      position: fixed;
-      bottom: 16px;
-      right: 24px;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 7px;
-      color: black;      letter-spacing: 0.1em;
-      z-index: 2;
-      pointer-events: none;
+    footer .footer-logo img {
+      height: 32px;
+      margin: 0 auto 24px;
+      display: block;
+      opacity: 0.85;
+    }
+
+    footer .footer-copy {
+      font-size: 13px;
+      color: var(--tcg-grey);
+      line-height: 1.8;
+    }
+
+    footer .footer-copy a {
+      color: var(--tcg-black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .lad img {
+      height: 10rem;
+      margin-bottom: 36px;
+    }
+
+    footer .copyright {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    footer .footer-logo-bottom img {
+      height: 28px;
+      margin: 16px auto 0;
+      display: block;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 14px 20px;
+      }
+      nav ul {
+        gap: 16px;
+      }
+      .benefits-section h2 {
+        font-size: 2rem;
+      }
+      .testimonial {
+        font-size: 1.5rem;
+      }
+
+      nav ul li a {
+        font-size: 11px;
+      }
+      nav ul li.cta a {
+        padding: 8px 14px;
+        font-size: 11px;
+      }
+      .hero {
+        padding: 72px 20px 60px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .hero .subhead {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="grid-bg">
-    <div class="grid-lines"></div>
-    <div class="grid-vignette"></div>
+  <nav>
+    <div class="logo">
+      <a href="#">
+        <img src="https://i.ibb.co/My0JYnQV/20260422-123014.png" alt="The Copy Grind Logo" />
+      </a>
+    </div>
+    <ul>
+      <li><a href="#subscribe">Subscribe</a></li>
+      <li><a href="about/">About</a></li>
+      <li class="cta"><a href="https://udodi.space">Hire Udodi</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-wrapper">
+    <div class="hero" id="subscribe">
+      <h1>THE COPY GRIND</h1>
+      <p class="subhead">Enjoy weekly thrilling "nano" lessons <br> on copywriting, psychology, and storytelling.</p>
+      <div class="iframe-wrap">
+        <iframe src="https://subscribe-forms.beehiiv.com/3df9f12d-06ca-4923-918d-683bcbd1f6f8"
+          class="beehiiv-embed"
+          data-test-id="beehiiv-embed"
+          frameborder="0"
+          scrolling="no"
+          style="width:492px;height:276px;margin:0;border-radius:0!important;background-color:transparent;box-shadow:0 0 #0000;max-width:100%;">
+        </iframe>
+      </div>
+    </div>
   </div>
 
-  <div class="corner tl"></div>
-  <div class="corner tr"></div>
-  <div class="corner bl"></div>
-  <div class="corner br"></div>
-
-  <div class="page">
-
-    <div class="logo-wrap">
-      <img src="https://i.ibb.co/MYVwxW0/20260422-152623.jpg" alt="The Copy Grind" />
-    </div>
-
-    <p class="eyebrow">Founded by <a style="color: var(--green); -webkit-text-stroke: 1px var(--green);" href="https://x.com/itsudodi">Udodi</a></p>
-
-    <h1 class="headline">
-      "If you want to master the <em>art of email</em>, then you need to see what this guy is doing"
-    </h1>
-
-    <p class="subheadline">
-      Get 2-minute weekly emails on actionable copywriting & storytelling tips, mixed with an unhinged sense of humor.
+  <section id="about">
+    <img
+      src="/images/tcgn.gif"
+      alt="The Copy Grind Newsletter"
+      class="newsletter-gif"
+    />
+    <p class="created-by">
+      Created in 2024 by <a href="http://udodi.space" target="_blank" rel="noopener">Udodi David</a>
     </p>
 
-    <div class="iframe-card">
-      <iframe src="https://subscribe-forms.beehiiv.com/3df9f12d-06ca-4923-918d-683bcbd1f6f8" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 492px; height: 276px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+    <div style="margin-top: 40px;" class="iframe-wrap">
+      <iframe src="https://subscribe-forms.beehiiv.com/3df9f12d-06ca-4923-918d-683bcbd1f6f8"
+        class="beehiiv-embed"
+        data-test-id="beehiiv-embed"
+        frameborder="0"
+        scrolling="no"
+        style="width:492px;height:276px;margin:0;border-radius:0!important;background-color:transparent;box-shadow:0 0 #0000;max-width:100%;">
+      </iframe>
     </div>
 
-    <p class="unsub">*Feel free to unsubscribe anytime</p>
+    <div style="margin-top: 48px;">
+      <p class="testimonial">
+        "If you want to master the art of email, then you need to see what this guy is doing."
+      </p>
+      <p class="testimonial-attr"><strong>— Laura Gjinika,</strong> <br />Founder & Writer @<br><a style="font-size: 12px;" href="https://words-of-persuasion.beehiiv.com/">Words of Persuasion</a></p>
+    </div>
+  </section>
+
+  <div class="divider-wrap">
+    <hr class="section-divider" />
   </div>
 
-  <div style="margin-right: 50px;" class="footer-tag">TCG © 2025</div>
+  <div class="benefits-section">
+    <h2>By subscribing to the TCG newsletter</h2>
+
+    <p class="weekly-copy">
+      You get weekly <span>"nano"</span> lessons about writing tips and psychology plays used to <span>hook readers in the first line and hold them till the last word.</span>
+    </p>
+
+    <p class="also-get">You also get instant access to these bonuses.</p>
+
+    <div class="bonus-row">
+      <div class="bonus-block">
+        <img src="images/bonus1.gif" alt="Bonus 1" class="bonus-gif" />
+        <img src="https://i.ibb.co/gZ2F57GT/20260503-094658.png" alt="Bonus 1 Preview" class="bonus-img" />
+        <p>Discover the secrets legendary DR copywriters have used to create million-dollar campaigns by writing hooker-hot headlines.</p>
+      </div>
+
+      <div class="bonus-block">
+        <img src="images/bonus2.gif" alt="Bonus 2" class="bonus-gif" />
+        <img src="https://i.ibb.co/TqJMqZKk/20260503-094735.png" alt="Bonus 2 Preview" class="bonus-img" />
+        <p>Get instant access to 50+ cold emails sent to CEOs of million-dollar companies that actually worked.</p>
+      </div>
+    </div>
+
+    <div class="iframe-wrap" style="margin-bottom: 48px;">
+      <iframe src="https://subscribe-forms.beehiiv.com/3df9f12d-06ca-4923-918d-683bcbd1f6f8"
+        class="beehiiv-embed"
+        data-test-id="beehiiv-embed"
+        frameborder="0"
+        scrolling="no"
+        style="width:492px;height:276px;margin:0;border-radius:0!important;background-color:transparent;box-shadow:0 0 #0000;max-width:100%;">
+      </iframe>
+    </div>
+
+    <div>
+      <p class="testimonial">
+        "The best thing about your emails is they're funny and relatable and it's always about helping us get better together."
+      </p>
+      <p class="testimonial-attr"><strong>— Chetan Rao</strong> <br /> DTC Brand Copywriter & Creative Strategist</p>
+    </div>
+  </div>
+
+  <div class="divider-wrap">
+    <hr class="section-divider" />
+  </div>
+
+  <div class="lad" style="text-align:center; padding: 40px 24px 0;">
+    <img src="https://i.ibb.co/My0JYnQV/20260422-123014.png" alt="The Copy Grind" />
+  </div>
+
+  <footer>
+    <p class="footer-copy">
+      Website copy and designs by <a href="http://udodi.space" target="_blank" rel="noopener">Udodi David</a><br/>
+      Inspired by <a href="http://verygoodcopy.com" target="_blank" rel="noopener">Eddie Shleyner</a>
+    </p>
+
+    <div class="footer-logo-bottom">
+      <img src="https://i.ibb.co/My0JYnQV/20260422-123014.png" alt="The Copy Grind" />
+    </div>
+
+    <p class="copyright">&copy; 2024 The Copy Grind. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
