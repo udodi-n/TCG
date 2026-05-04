@@ -118,16 +118,19 @@
     .check-wrap {
       width: 64px;
       height: 64px;
-      padding: 10rem;
+      padding: 4rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 36px;
+      margin-bottom: 12px;
       position: relative;
       animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
     }
 
+    .check-wrap img {
+      height:128px;
+    }
 
     .eyebrow {
       font-family: var(--font-minecraft);
@@ -283,6 +286,9 @@
     }
 
     @media (max-width: 600px) {
+      .logo a img {
+        height: 72px;
+      }
       nav { padding: 14px 20px; }
       nav ul { gap: 16px; }
       nav ul li a { font-size: 11px; }
@@ -316,7 +322,7 @@
 
       <h1 class="headline">Thanks for<br>subscribing</h1>
 
-      <p class="subtext">Check your inbox for your free bonuses!</p>
+      <p class="subtext">Check your inbox for your free bonus packs! <br>(Check your Promotions tab if you can't find it.)</p>
 
       <hr class="divider" />
 
